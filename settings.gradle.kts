@@ -6,3 +6,20 @@
  */
 
 rootProject.name = "cache-artifact-generator"
+
+buildCache {
+    local {
+        isEnabled = false
+    }
+    remote<HttpBuildCache> {
+        isAllowUntrustedServer = true
+        // Specify the remote caching server URL
+        url = uri("")
+        // Enable basic authentication
+        credentials {
+            username = ""
+            password = ""
+        }
+        isPush = true
+    }
+}
